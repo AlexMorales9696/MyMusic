@@ -1,6 +1,6 @@
 ﻿namespace MyMusic.Models
 {
-    public class Album
+    public class AlbumViwModel
     {
         public int IdAlbum { get; set; }
         public string NomeAlbum { get; set; }
