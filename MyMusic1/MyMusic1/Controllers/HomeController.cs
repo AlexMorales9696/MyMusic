@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using MyMusic.Repository;
+using MyMusic1.DBManager;
 using MyMusic1.Models;
+using System.Diagnostics;
 
-namespace MyMusic.Controllers
+namespace MyMusic1.Controllers
 {
     public class HomeController : Controller
     {
@@ -17,27 +17,36 @@ namespace MyMusic.Controllers
         }
 
         [HttpGet]
+        public IActionResult Index()
+        {
+            return View(dBManager.GetAllArtista());
+        }
         public IActionResult IndexBrani()
         {
 
-            ritorno Visualizza(_dbReader.GetAllBrani ());
+            return View(dBManager.GetAllBrani());
         }
         public IActionResult IndexAlbum()
         {
-            restituisce Visualizza(_dbReader.GetAllAlbum ());
+            return View(dBManager.GetAllAlbum());
 
         }
         public IActionResult IndexBand()
         {
-            ritorno Visualizza(_dbReader.GetAllBand ());
+            return View(dBManager.GetAllBand());
         }
 
-      
+       
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
     }
 }

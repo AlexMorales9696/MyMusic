@@ -1,4 +1,4 @@
-﻿namespace MyMusic.Models
+﻿namespace MyMusic1.Models
 {
     public class BandViwModel
     {
